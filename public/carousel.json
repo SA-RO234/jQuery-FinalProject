@@ -3,18 +3,18 @@
     "id": "1",
     "title": "AirPod Pro",
     "description": "Discover a world of opportunities and resources tailored just for you.",
-    "imageUrl": "src/assets/hero.jpg"
+    "imageUrl": "./src/assets/hero.jpg"
   },
   {
     "id": "2",
     "title": "Grocery Delivery",
     "description": "Explore the latest features that enhance your experience.",
-    "imageUrl": "src/assets/hero.jpg"
+    "imageUrl": "./src/assets/hero.jpg"
   },
   {
     "id": "3",
     "title": "Community Engagement",
     "description": "Connect with like-minded individuals and grow together.",
-    "imageUrl": "src/assets/hero.jpg"
+    "imageUrl": "./src/assets/hero.jpg"
   }
 ]
