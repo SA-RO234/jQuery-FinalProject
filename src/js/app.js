@@ -1,30 +1,18 @@
-$(document).ready(function () {
-  $("#owl-carousel").owlCarousel({
-    animateOut: "slideOutDown",
-    animateIn: "flipInX",
-    items: 1,
-    loop: true,
-    nav: true,
-    autoplay: true,
-    smartSpeed: 450,
-    dots: false, // Hide dots if not already set
-  });
 
-    // Fetch the latest product for carousel using fetch API
-    fetch("public/carousel.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        let result = "";
-        data.forEach((item) => {
-          console.log(item.imageUrl);
-          
-          result += ` 
-          <div class="carousel-item border h-[100%] relative w-full">
+$(document).ready(function () {
+  // Fetch the latest product for carousel using fetch API
+  let AllData =  fetch("public/carousel.json");
+    AllData.then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      let result = "";
+      data.forEach((item) => {
+        result += ` 
+          <div class="carousel-item rounded-3xl swiper-slide overflow-visible border relative w-full">
               <p class="absolute bg-red-700 text-white text-2xl font-bold p-5 w-[100px] h-[50px] -top-[20px] right-10 z-10 flex justify-center items-center">New</p>
               <img
                 class=" h-[500px] object-cover w-full"
@@ -58,13 +46,12 @@ $(document).ready(function () {
               </div>
             </div> 
           `;
-          $("#owl-carousel").html(result);
-        
-        });
-
-      })
-      .catch((error) => {
-        console.error("Error fetching carousel.json:", error);
       });
- 
+      $("#swiper-slide").html(result);
+    })
+    .catch((error) => {
+      console.error("Error fetching carousel.json:", error);
+    });
 });
+
+

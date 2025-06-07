@@ -2,6 +2,8 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.8",
     "daisyui": "^5.0.43",
+    "owl.carousel": "^2.3.4",
+    "swiper": "^11.2.8",
     "tailwindcss": "^4.1.8"
   },
   "scripts": {
