@@ -33,8 +33,8 @@
 
   </head>
   <body class="select-none">
-    <div class="wrapper flex gap-3 w-full pl-[50px] pr-[10px]">
-      <div class="product-container w-full lg:w-[75%]">
+    <div id="wrapper" class="wrapper  flex gap-3 w-full pl-[50px] pr-[50px]">
+      <div id="productContainer" class="product-container w-full pb-[100px] ">
         <div class="navbar-container">
           <nav class="navbar flex justify-start items-center gap-[100px]">
             <a href="#" class=""
@@ -73,11 +73,12 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
-      <button type="button" class="absolute open-slide"></button>
-      <div class="productDetail-container bg-blue-600 lg:w-[25%] mt-5  p-5 rounded-3xl col-lg-4 col-6">
-       <aside>
+      <button type="button" id="btnOpenSlide" class="absolute bg-blue-700 p-[10px_15px] rounded-full right-[50px] cursor-pointer top-[130px] open-slide"><i class="fa-solid fa-angles-left"></i></button>
+     <div class="w-[25%]  overflow-hidden relative">
+      <div id="productDetail" class="productDetail-container absolute right-[-100%] w-full  bg-blue-600  mt-5  p-5 rounded-3xl col-lg-4 col-6">
+       <aside> 
             <div class="flex justify-between items-center">
-               <button type="button" class="text-[20px] cursor-pointer "><i class="fa-solid fa-angles-right"></i></button>
+               <button type="button" id="CloseSide" class="text-[20px] cursor-pointer "><i class="fa-solid fa-angles-right"></i></button>
                <!--  Top Product Detail -->
                <div class="flex justify-center gap-5 items-center">
                    <button type="button" class="bg-white cursor-pointer p-[10px_15px] relative text-3xl rounded-full text-black"><i class="fa-regular fa-bookmark"></i>
@@ -130,7 +131,7 @@
           </div>
 
            <!-- Sub total section -->
-            <div class="subTotal-container p-5 rounded-2xl bg-[rgba(26,25,25,0.27)]">
+            <div  class="subTotal-container p-5 rounded-2xl bg-[rgba(26,25,25,0.27)]">
                 <div class="flex justify-between items-center">
                     <p class="label text-[18px] ">Sub Total</p>
                     <p class="price text-[18px]">$ <span>100.00</span> </p>
@@ -154,6 +155,79 @@
        </aside>
       </div>
     </div>
+    </div>
+
+     <!-- section listing card  -->
+    <section class="productlist-container bg-gray-50  p-[50px_130px] justify-center w-full">
+        <h1 class="text-[40px] flex  items-center relative font-bold text-black pb-[100px] after:content-[''] after:absolute after:right-0 after:w-[70%] after:border-t after:border-black after:border-b after:block after:h-5 ">Explore you Need</h1>
+        <div class="listitem-container flex flex-wrap gap-x-10 gap-y-20">
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+            <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">AirPod Pro</h1>
+                   <p class="des text-black text-[18px] font-md">Lorem ipsum dolor adipisicing elit. Dolorem, voluptatum.</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>55.00</span></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
   </body>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -172,7 +246,6 @@
         el: ".swiper-pagination",
         clickable: true,
       },
-
     });
   </script>
   <!--  JS app -->

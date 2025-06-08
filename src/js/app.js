@@ -1,13 +1,12 @@
-
 $(document).ready(function () {
   // Fetch the latest product for carousel using fetch API
-  let AllData =  fetch("public/carousel.json");
-    AllData.then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
+  let AllData = fetch("public/carousel.json");
+  AllData.then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
     .then((data) => {
       let result = "";
       data.forEach((item) => {
@@ -52,6 +51,20 @@ $(document).ready(function () {
     .catch((error) => {
       console.error("Error fetching carousel.json:", error);
     });
+
+  // Open Slidebar
+  $("#btnOpenSlide").click(function () {
+    $("#productContainer").addClass("widhtProduct");
+    $("#productDetail").addClass("open");
+    $("#wrapper").removeClass("pr-[50px]");
+    $("#wrapper").addClass("pr-[10px]");
+  });
+
+  //  Close Sidebar 
+  $("#CloseSide").click(()=>{
+    $("#productContainer").removeClass("widhtProduct");
+    $("#productDetail").removeClass("open");
+    $("#wrapper").addClass("pr-[50px]");
+    $("#wrapper").removeClass("pr-[10px]");
+  });
 });
-
-

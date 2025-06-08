@@ -2,5 +2,17 @@
 @plugin "daisyui";
 
 .swiper {
-    width: 100%;
-  }
+  width: 100%;
+}
+
+.open {
+  right: 0 !important;
+}
+
+.widhtProduct {
+  width: 75% !important;
+}
+
+.mypaddin-left {
+  padding-right: 10px !important;
+}
