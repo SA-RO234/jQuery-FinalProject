@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Fetch the latest product for carousel using fetch API
-  let AllData = fetch("public/carousel.json");
+  let AllData = fetch("http://localhost:8080/Carousel");
   AllData.then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -60,11 +60,33 @@ $(document).ready(function () {
     $("#wrapper").addClass("pr-[10px]");
   });
 
-  //  Close Sidebar 
-  $("#CloseSide").click(()=>{
+  //  Close Sidebar
+  $("#CloseSide").click(() => {
     $("#productContainer").removeClass("widhtProduct");
     $("#productDetail").removeClass("open");
     $("#wrapper").addClass("pr-[50px]");
     $("#wrapper").removeClass("pr-[10px]");
   });
+});
+
+$.ajax({
+  type: "GET",
+  url: "http://localhost:8080/product",
+  dataType: "json",
+  success: function (response) {
+    let result = "";
+    response.map((item) => {
+      result += `
+           <div class="list-card flex group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+              <img  class="absolute group-hover:top-[-60px] duration-500 rounded-t-3xl  bg-gray-500 top-[-50px] left-[65px] w-[60%] " src="${item.ImageUrl}" alt="" />
+                <div class="layer w-full  p-5 rounded-4xl">
+                   <h1 class="title text-black font-bold text-[20px]">${item.name}</h1>
+                   <p class="des text-black text-[18px] font-md">${item.description}</p>
+                  <p class="price text-3xl font-bold text-black">$ <span>${item.price}</span></p>
+                </div>
+            </div>
+         `;
+      $("#DisplayProduct").html(result);
+    });
+  },
 });

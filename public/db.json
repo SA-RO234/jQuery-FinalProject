@@ -1,0 +1,72 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "T-Shirt A",
+      "price": 29.99,
+      "category": "T-Shirt",
+      "description": "Description for Product A",
+      "ImageUrl": "./src/assets/T-Shirt/img1.png"
+    },
+    {
+      "id": 2,
+      "name": "T-Shirt Addidas",
+      "price": 49.99,
+      "category": "T-Shirt",
+      "description": "Description for Product B",
+      "ImageUrl": "./src/assets/T-Shirt/img2.png"
+    },
+    {
+      "id": 3,
+      "name": "Backpack c",
+      "price": 19.99,
+      "category": "Backpack",
+      "description": "Description for Product C",
+      "ImageUrl": "./src/assets/backpack/img1.png"
+    },
+    {
+      "id": 4,
+      "name": "Backpack d",
+      "price": 39.99,
+      "category": "Backpack",
+      "description": "Description for Product D",
+      "ImageUrl": "./src/assets/backpack/img2.png"
+    },
+    {
+      "id": 5,
+      "name": "AirPod Pro",
+      "price": 199.99,
+      "category": "Electronics",
+      "description": "Description for Product E",
+      "ImageUrl": "./src/asset"
+    },
+    {
+      "id": 6,
+      "name": "Grocery Delivery",
+      "price": 9.99,
+      "category": "Grocery",
+      "description": "Description for Product F",
+      "ImageUrl": "./src/assets/product4.jpg"
+    }
+  ],
+  "carousel": [
+    {
+      "id": "1",
+      "title": "AirPod Pro",
+      "description": "Discover a world of opportunities and resources tailored just for you.",
+      "imageUrl": "./src/assets/hero.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Grocery Delivery",
+      "description": "Explore the latest features that enhance your experience.",
+      "imageUrl": "./src/assets/hero.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Community Engagement",
+      "description": "Connect with like-minded individuals and grow together.",
+      "imageUrl": "./src/assets/hero.jpg"
+    }
+  ]
+}
