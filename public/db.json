@@ -38,7 +38,7 @@
       "price": 199.99,
       "category": "Electronics",
       "description": "Description for Product E",
-      "ImageUrl": "./src/asset"
+      "ImageUrl": "./src/assets/electronic/img1.png"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "price": 9.99,
       "category": "Grocery",
       "description": "Description for Product F",
-      "ImageUrl": "./src/assets/product4.jpg"
+      "ImageUrl": "./src/assets/grocery/img2.png"
     }
   ],
   "carousel": [
