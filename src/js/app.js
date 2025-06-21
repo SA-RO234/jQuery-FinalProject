@@ -1,3 +1,34 @@
+function loadingShow() {
+  $("#sklenton").show();
+}
+function loadingHide() {
+  $("#sklenton").hide();
+}
+
+function DisplayProduct(data) {
+  let result = "";
+  data.map((item) => {
+    result += `
+       <div class="flex  group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+          <p class="bg-red-700 p-[5px_10px] text-md font-bold absolute left-[-15px] top-[-0px] -rotate-50">New</p>
+       <img  class="absolute group-hover:top-[-70px] h-[200px] object-cover  duration-500 rounded-t-3xl  bg-gray-500 top-[-65px] left-[65px] w-[60%] " src="${item.ImageUrl}" alt="" />
+            <div class="layer flex justify-end flex-col items-start relative w-full overflow-hidden h-full p-5 rounded-4xl">
+               <h1 class="title text-black font-bold text-[20px]">${item.name}</h1>
+               <p class="des text-black text-[18px] font-md">${item.description}</p>
+              <p class="price text-3xl z-[1000] font-bold text-black">$ <span>${item.price}</span></p>
+                 <div class="absolute group-hover:right-0 flex justify-center flex-col gap-2  right-[-150px] duration-300 top-[100px]">
+                 <button type="button" class="text-xl bg-black p-3 font-bold cursor-pointer rounded-l-3xl" >Add to cart</button>
+                  <button type="button" class="bg-black text-xl p-3 font-bold rounded-l-3xl cursor-pointer" >Like</button>
+            </div>
+            </div>
+
+        </div>
+     `;
+    $("#DisplayProduct").html(result);
+    loadingHide();
+  });
+}
+
 $(document).ready(function () {
   // Fetch the latest product for carousel using fetch API
   let AllData = fetch("http://localhost:8080/Carousel");
@@ -67,32 +98,14 @@ $(document).ready(function () {
     $("#wrapper").addClass("pr-[50px]");
     $("#wrapper").removeClass("pr-[10px]");
   });
-});
 
-$.ajax({
-  type: "GET",
-  url: "http://localhost:8080/product",
-  dataType: "json",
-  success: function (response) {
-    let result = "";
-    response.map((item) => {
-      result += `
-           <div class="flex  group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
-              <p class="bg-red-700 p-[5px_10px] text-md font-bold absolute left-[-15px] top-[-0px] -rotate-50">New</p>
-           <img  class="absolute group-hover:top-[-70px] h-[200px] object-cover  duration-500 rounded-t-3xl  bg-gray-500 top-[-65px] left-[65px] w-[60%] " src="${item.ImageUrl}" alt="" />
-                <div class="layer flex justify-end flex-col items-start relative w-full overflow-hidden h-full p-5 rounded-4xl">
-                   <h1 class="title text-black font-bold text-[20px]">${item.name}</h1>
-                   <p class="des text-black text-[18px] font-md">${item.description}</p>
-                  <p class="price text-3xl z-[1000] font-bold text-black">$ <span>${item.price}</span></p>
-                     <div class="absolute group-hover:right-0 flex justify-center flex-col gap-2  right-[-150px] duration-300 top-[100px]">
-                     <button type="button" class="text-xl bg-black p-3 font-bold cursor-pointer rounded-l-3xl" >Add to cart</button>
-                      <button type="button" class="bg-black text-xl p-3 font-bold rounded-l-3xl cursor-pointer" >Like</button>
-                </div>
-                </div>
-    
-            </div>
-         `;
-      $("#DisplayProduct").html(result);
-    });
-  },
+  loadingShow();
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/product",
+    dataType: "json",
+    success: function (response) {
+      DisplayProduct(response);
+    },
+  });
 });

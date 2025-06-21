@@ -21,3 +21,19 @@
   background: black !important;
   color: #ffff !important;
 }
+
+.brand-list img {
+  @apply max-w-[200px];
+}
+#brand {
+  animation: infinitScroll 7s linear infinite;
+}
+
+@keyframes infinitScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

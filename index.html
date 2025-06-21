@@ -30,7 +30,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
   </head>
-  <body class="select-none">
+  <body class="select-none ">
     <div id="wrapper" class="wrapper flex gap-3 w-full pl-[50px] pr-[50px]">
       <div id="productContainer" class="product-container w-full pb-[100px]">
         <div class="navbar-container">
@@ -245,40 +245,130 @@
         </h1>
         <nav class="text-black">
           <ul
-            class="flex justify-center border-2 border-black py-3 items-center gap-5"
+            id="listitem"
+            class="flex justify-center  border-2 border-black py-3 items-center gap-5"
           >
-            <li>
-              <a
-                href="#"
-                class="text-xl active border-r-2 border-black p-3 h-full font-bold"
-                >Electronic</a
-              >
-            </li>
-            <li>
-              <a href="#" class="text-xl border-r-2 p-3 h-full font-bold"
-                >Grocery</a
-              >
-            </li>
-            <li>
-              <a href="#" class="text-xl border-r-2 p-3 h-full font-bold"
-                >T-Shirt</a
-              >
-            </li>
-            <li>
-              <a href="#" class="text-xl p-3 h-full font-bold">Backpack</a>
-            </li>
+           
           </ul>
         </nav>
       </div>
       <div
         id="DisplayProduct"
         class="listitem-container flex flex-wrap gap-x-10 gap-y-20"
+      ></div>
+      <div
+       id="sklenton"
+        class="skeleton-container flex justify-start flex-wrap gap-x-10 gap-y-20"
       >
-        // All Product
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
+        <div id="skeleton-Product" class="flex w-[320px] flex-col gap-4">
+          <div class="skeleton h-32 w-full"></div>
+          <div class="skeleton h-4 w-28"></div>
+          <div class="skeleton h-4 w-full"></div>
+          <div class="skeleton h-4 w-full"></div>
+        </div>
       </div>
     </section>
-
-    <footer
+     <!--  section brand -->
+    <section  class="brand-container overflow-hidden w-full mb-[100px] bg-gray-50 p-[50px_130px]">
+      <h1 class="text-[40px] font-bold text-black mb-[50px]">
+        Our Brand Partner
+      </h1>
+      <div id="brand" class="brand-list w-full gap-x-[100px] inline-flex justify-between items-center">
+        <img
+          src="/src/assets/brand/addidas.png"
+          alt=""
+          class="w-[150px]"
+        />
+        <img
+          src="/src/assets/brand/amazon.png"
+          alt=""
+          class="w-[150px] "
+        />
+        <img
+          src="/src/assets/brand/apple.png"
+          alt=""
+          class="w-[150px] "
+        />
+        <img
+          src="/src/assets/brand/nike.png"
+          alt=""
+          class="w-[150px] "
+        />
+        <img
+          src="/src/assets/brand/amazon.png"
+          alt=""
+          class="w-[150px] "
+        />
+        <img
+        src="/src/assets/brand/addidas.png"
+        alt=""
+        class="w-[150px]"
+      />
+      <img
+        src="/src/assets/brand/amazon.png"
+        alt=""
+        class="w-[150px] "
+      />
+      <img
+        src="/src/assets/brand/apple.png"
+        alt=""
+        class="w-[150px] "
+      />
+      <img
+        src="/src/assets/brand/nike.png"
+        alt=""
+        class="w-[150px] "
+      />
+      <img
+        src="/src/assets/brand/amazon.png"
+        alt=""
+        class="w-[150px] "
+      />
+      </div>
+    </section>
+      <footer
       class="footer sm:footer-horizontal flex-col flex bg-base-300 text-base-content py-[100px]"
     >
       <div class="footer w-full flex justify-center gap-[100px]">
@@ -355,6 +445,8 @@
         </aside>
       </div>
     </footer>
+
+
   </body>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -377,10 +469,9 @@
     $(document).ready(function () {
       $("#year").text(new Date().getFullYear());
     });
-
-    
   </script>
   <!--  JS app -->
   <script src="/src/js/app.js"></script>
+  <script src="/src/js/navbar.js"></script>
   <script src="/src/js/server.js"></script>
 </html>
