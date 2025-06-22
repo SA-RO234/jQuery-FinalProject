@@ -5,6 +5,7 @@ function loadingHide() {
   $("#sklenton").hide();
 }
 
+let AllProductStore = [];
 function DisplayProduct(data) {
   let result = "";
   data.map((item) => {
@@ -99,13 +100,21 @@ $(document).ready(function () {
     $("#wrapper").removeClass("pr-[10px]");
   });
 
+  
   loadingShow();
   $.ajax({
     type: "GET",
     url: "http://localhost:8080/product",
     dataType: "json",
     success: function (response) {
+      AllProductStore.push(...response);
       DisplayProduct(response);
+      ActiveNavbar(AllProductStore);
     },
   });
 });
+
+
+
+
+
