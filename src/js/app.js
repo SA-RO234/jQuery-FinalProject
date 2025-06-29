@@ -10,16 +10,32 @@ function DisplayProduct(data) {
   let result = "";
   data.map((item) => {
     result += `
-       <div class="flex  group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
-          <p class="bg-red-700 p-[5px_10px] text-md font-bold absolute left-[-15px] top-[-0px] -rotate-50">New</p>
-       <img  class="absolute group-hover:top-[-70px] h-[200px] object-cover  duration-500 rounded-t-3xl  bg-gray-500 top-[-65px] left-[65px] w-[60%] " src="${item.ImageUrl}" alt="" />
+       <div class="flex  productItem group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+        ${
+          item.dis === 0.0
+            ? ``
+            : `<p class="bg-red-700 p-[5px_10px] text-md font-bold absolute right-[-15px] top-[20px]"><span>${
+                item.dis * 100
+              }</span>%</p>`
+        }
+       <img  class="absolute group-hover:top-[-70px] h-[200px] object-cover  duration-500 rounded-t-3xl  bg-gray-500 top-[-65px] left-[65px] w-[60%] " src="${
+         item.ImageUrl
+       }" alt="" />
             <div class="layer flex justify-end flex-col items-start relative w-full overflow-hidden h-full p-5 rounded-4xl">
-               <h1 class="title text-black font-bold text-[20px]">${item.name}</h1>
-               <p class="des text-black text-[18px] font-md">${item.description}</p>
-              <p class="price text-3xl z-[1000] font-bold text-black">$ <span>${item.price}</span></p>
+               <h1 class="title text-black font-bold text-[20px]">${
+                 item.name
+               }</h1>
+               <p class="des text-black text-[18px] font-md">${
+                 item.description
+               }</p>
+              <p class="price text-3xl z-[1000] font-bold text-black">$ <span>${
+                item.price
+              }</span></p>
                  <div class="absolute group-hover:right-0 flex justify-center flex-col gap-2  right-[-150px] duration-300 top-[100px]">
-                 <button type="button" class="text-xl bg-black p-3 font-bold cursor-pointer rounded-l-3xl" >Add to cart</button>
-                  <button type="button" class="bg-black text-xl p-3 font-bold rounded-l-3xl cursor-pointer" >Like</button>
+                 <button type="button" data-id="${
+                   item.id
+                 }" id="btnAdd" class="btnAdd text-xl bg-black p-3 font-bold cursor-pointer rounded-l-3xl" >Add to cart</button>
+                  <button type="button" id="btnSave" class="bg-black text-xl p-3 font-bold rounded-l-3xl cursor-pointer" >Like</button>
             </div>
             </div>
 
@@ -29,6 +45,72 @@ function DisplayProduct(data) {
     loadingHide();
   });
 }
+
+function ShowCart(data) {
+  let result = "";
+  data.forEach((item) => {
+    result += `
+          <div class="productDetail-item relative mb-3 bg-[rgba(26,25,25,0.27)] py-1 pr-5 text-black rounded-2xl flex justify-between items-center">
+                <img
+                  class="w-[100px] h-[80px] rounded-2xl object-cover"
+                  src="${item.ImageUrl}"
+                  alt="${item.name}"
+                />
+                <div class="layer">
+                  <h3 id="title" class="title text-md font-medium">${item.name}</h3>
+                  <p id="price" class="price text-md font-medium">$${item.price}</p>
+                </div>
+                <div class="flex justify-center flex-col-reverse items-center">
+                  <button
+                    type="button"
+                    PDis-Id = "${item.id}"
+                    class="text-md discrement font-bold p-[0px_8px] flex justify-center items-center cursor-pointer bg-white rounded-full"
+                  >
+                    -
+                  </button>
+                  <p class="number text-black" id="qty">${item.qty}</p>
+                  <button
+                    type="button"
+                      PIn-Id = "${item.id}"
+                    class="text-md increment font-bold p-[0px_6px] flex justify-center items-center cursor-pointer bg-white rounded-full"
+                  >
+                    +
+                  </button>
+                </div>
+                 <button id="cencelPro" product-ID = "${item.id}" type="button" class="text-white cencelPro cursor-pointer  " ><i class="fa-solid fa-circle-xmark"></i></button>
+              </div>
+         `;
+  });
+  $("#ProductDetail").html(result);
+}
+
+var Allcart = JSON.parse(localStorage.getItem("Allcart") || "[]");
+var SubTotal = 0;
+var TotalPayment = 0;
+var Qty = 0;
+var totalDiscount = 0;
+
+function Calculate() {
+  // Calculate subtotal based on qty and price
+  SubTotal = Allcart.reduce(
+    (sum, item) => sum + (item.price || 0) * (item.qty || 1),
+    0
+  );
+  Qty = Allcart.reduce((sum, item) => sum + (item.qty || 1), 0);
+  totalDiscount = Allcart.reduce(function (sum, item) {
+    if (item.dis && item.price) {
+      return sum + item.price * item.dis * (item.qty || 1);
+    }
+    return sum;
+  }, 0);
+  TotalPayment = SubTotal - totalDiscount;
+  $("#subTotal").text(SubTotal.toFixed(2));
+  $("#Shipment").text(Qty);
+  $("#discount").text(totalDiscount.toFixed(2));
+  $("#totalpayment").text(TotalPayment.toFixed(2));
+}
+
+Calculate();
 
 $(document).ready(function () {
   // Fetch the latest product for carousel using fetch API
@@ -100,7 +182,6 @@ $(document).ready(function () {
     $("#wrapper").removeClass("pr-[10px]");
   });
 
-  
   loadingShow();
   $.ajax({
     type: "GET",
@@ -112,9 +193,80 @@ $(document).ready(function () {
       ActiveNavbar(AllProductStore);
     },
   });
+
+  ShowCart(Allcart);
+
+  // Add to cart
+  $(document).on("click", ".btnAdd", function () {
+    var ProductID = $(this).attr("data-id");
+    var found = Allcart.find(function (item) {
+      return item.id === parseInt(ProductID);
+    });
+    if (found) {
+      Swal.fire({
+        position: "top-end",
+        icon: "warning",
+        title: "Already Add !",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+    var product = AllProductStore.find(function (item) {
+      return item.id === parseInt(ProductID);
+    });
+    if (product) {
+      Allcart.push(product);
+      localStorage.setItem("Allcart", JSON.stringify(Allcart));
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Add to cart !",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      ShowCart(Allcart);
+
+      Calculate();
+    }
+  });
+
+  // alert(totalDiscount);
+  $("#subTotal").text(SubTotal.toFixed(2));
+  $("#Shipment").text(Qty);
+  $("#discount").text(totalDiscount.toFixed(2));
+  $("#totalpayment").text(TotalPayment.toFixed(2));
+
+  // Cancel Product
+  $(document).on("click", ".cencelPro", function () {
+    const proID = $(this).attr("product-ID");
+    // Remove the product from Allcart
+    Allcart = Allcart.filter(function (item) {
+      return item.id !== parseInt(proID);
+    });
+    // Update localStorage
+    localStorage.setItem("Allcart", JSON.stringify(Allcart));
+    // Refresh cart display
+    ShowCart(Allcart);
+    Calculate();
+  });
+
+  //   Count Btn increment and Discrement
+  $(document).on("click", ".increment", function () {
+    const PInId = $(this).attr("PIn-Id");
+    if (PInId) {
+      var product = Allcart.find(function (item) {
+        return item.id === parseInt(PInId);
+      });
+      if (product) {
+        if (!product.qty) product.qty = 1;
+        product.qty += 1;
+        // Update localStorage
+        localStorage.setItem("Allcart", JSON.stringify(Allcart));
+        // Refresh cart display and recalculate
+        ShowCart(Allcart);
+        Calculate();
+      }
+    }
+  });
 });
-
-
-
-
-

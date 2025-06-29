@@ -4,6 +4,8 @@
       "id": 1,
       "name": "T-Shirt A",
       "price": 29.99,
+      "dis": 0.5,
+      "qty" : 1,
       "category": "T-Shirt",
       "description": "Description for Product A",
       "ImageUrl": "./src/assets/T-Shirt/img1.png"
@@ -12,6 +14,8 @@
       "id": 2,
       "name": "T-Shirt Addidas",
       "price": 49.99,
+      "dis": 0.0,
+      "qty": 1,
       "category": "T-Shirt",
       "description": "Description for Product B",
       "ImageUrl": "./src/assets/T-Shirt/img2.png"
@@ -20,6 +24,8 @@
       "id": 3,
       "name": "Backpack c",
       "price": 19.99,
+      "dis": 0.0,
+      "qty": 1,
       "category": "Backpack",
       "description": "Description for Product C",
       "ImageUrl": "./src/assets/backpack/img1.png"
@@ -28,6 +34,8 @@
       "id": 4,
       "name": "Backpack d",
       "price": 39.99,
+      "dis": 0.05,
+      "qty": 1,
       "category": "Backpack",
       "description": "Description for Product D",
       "ImageUrl": "./src/assets/backpack/img2.png"
@@ -36,6 +44,8 @@
       "id": 5,
       "name": "AirPod Pro",
       "price": 199.99,
+      "qty": 1,
+      "dis": 0.7,
       "category": "Electronics",
       "description": "Description for Product E",
       "ImageUrl": "./src/assets/electronic/img1.png"
@@ -45,6 +55,8 @@
       "name": "Grocery Delivery",
       "price": 9.99,
       "category": "Grocery",
+      "dis": 0.5,
+      "qty": 1,
       "description": "Description for Product F",
       "ImageUrl": "./src/assets/grocery/img2.png"
     }
