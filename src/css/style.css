@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
-
+*{
+  /* border: 1px solid red; */
+}
 .swiper {
   width: 100%;
 }

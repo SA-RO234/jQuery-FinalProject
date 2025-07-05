@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorith Product</title>
+    <link rel="stylesheet" href="/src/css/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+       <!--  jQueury cdn -->
+       <script
+       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+       crossorigin="anonymous"
+       referrerpolicy="no-referrer"
+     ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .card-shadow {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .spec-tag {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+
+  <body class="p-[50px_100px]">
+    <a href="/index.html" class="text-[30px] font-bold"
+      > <i class="fa-solid fa-arrow-left"></i
+        > Back </a>
+    <h1 class="text-[50px] font-bold">All Product Favorith</h1>
+    <div id="AllProduct" class="container flex flex-wrap gap-10"></div>
+  </body>
+  <script src="/src/js/app.js"></script>
+  <script src="/src/js/save.js"></script>
+</html>

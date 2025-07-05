@@ -35,7 +35,9 @@ function DisplayProduct(data) {
                  <button type="button" data-id="${
                    item.id
                  }" id="btnAdd" class="btnAdd text-xl bg-black p-3 font-bold cursor-pointer rounded-l-3xl" >Add to cart</button>
-                  <button type="button" id="btnSave" class="bg-black text-xl p-3 font-bold rounded-l-3xl cursor-pointer" >Like</button>
+                  <button type="button" id="btnSave" proSave="${
+                    item.id
+                  }" class="bg-black btnSave text-xl p-3 font-bold rounded-l-3xl cursor-pointer" >Like</button>
             </div>
             </div>
 
@@ -133,10 +135,10 @@ $(document).ready(function () {
                 alt="${item.title || ""}"
               />
               <div
-                class="layer gap-5 top-[50px] w-[40%] text-white flex justify-center items-start flex-col absolute left-[50px] z-20"
+                class="layer gap-5 top-[50px] w-full md:w-[40%] text-white flex justify-center items-start flex-col absolute left-0 md:left-[50px] z-20"
               >
                 <h1 class="title text-5xl font-bold">${item.title}</h1>
-                <p class="description text-[1em] font-medium">
+                <p class="description  text-[1em] font-medium">
                   ${item.description}
                 </p>
                 <!-- From Uiverse.io by nathAd17 -->
@@ -251,7 +253,7 @@ $(document).ready(function () {
     Calculate();
   });
 
-  //   Count Btn increment and Discrement
+  //   Count Btn increment
   $(document).on("click", ".increment", function () {
     const PInId = $(this).attr("PIn-Id");
     if (PInId) {
@@ -269,4 +271,32 @@ $(document).ready(function () {
       }
     }
   });
+
+  //   Count Btn Discrement
+  $(document).on("click", ".discrement", function () {
+    const PDiId = $(this).attr("PDis-Id");
+    if (PDiId) {
+      var product = Allcart.find(function (item) {
+        return item.id === parseInt(PDiId);
+      });
+      if (product) {
+        if (!product.qty) product.qty = 1;
+        if (product.qty > 1) {
+          product.qty -= 1;
+        } else if (product.qty === 1) {
+          // Remove product from cart if qty would go below 1
+          Allcart = Allcart.filter(function (item) {
+            return item.id !== parseInt(PInId);
+          });
+        }
+        // Update localStorage
+        localStorage.setItem("Allcart", JSON.stringify(Allcart));
+        // Refresh cart display and recalculate
+        ShowCart(Allcart);
+        Calculate();
+      }
+    }
+  });
+
+
 });
