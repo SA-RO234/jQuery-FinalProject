@@ -2706,6 +2706,11 @@
       width: 25%;
     }
   }
+  .lg\:w-\[55\%\] {
+    @media (width >= 64rem) {
+      width: 55%;
+    }
+  }
   .lg\:w-\[300px\] {
     @media (width >= 64rem) {
       width: 300px;

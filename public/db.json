@@ -8,7 +8,7 @@
       "qty" : 1,
       "category": "T-Shirt",
       "description": "Description for Product A",
-      "ImageUrl": "./src/assets/T-Shirt/img1.png"
+      "ImageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778791/e54bc529-e629-41e1-b08d-cd31d45f255d.png"
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "qty": 1,
       "category": "T-Shirt",
       "description": "Description for Product B",
-      "ImageUrl": "./src/assets/T-Shirt/img2.png"
+      "ImageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778748/abe3a0a1-9656-42f4-805c-9844a71bc0b7.png"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "qty": 1,
       "category": "Backpack",
       "description": "Description for Product C",
-      "ImageUrl": "./src/assets/backpack/img1.png"
+      "ImageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag4_n7q3ec.png"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "qty": 1,
       "category": "Backpack",
       "description": "Description for Product D",
-      "ImageUrl": "./src/assets/backpack/img2.png"
+      "ImageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1744024188/bag3_zbdjws.png"
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "dis": 0.7,
       "category": "Electronics",
       "description": "Description for Product E",
-      "ImageUrl": "./src/assets/electronic/img1.png"
+      "ImageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778609/7ec80ec5ef82bd3fcaa8a7ff59280293-removebg-preview_vaw0na.png"
     },
     {
       "id": 6,
@@ -58,7 +58,7 @@
       "dis": 0.5,
       "qty": 1,
       "description": "Description for Product F",
-      "ImageUrl": "./src/assets/grocery/img2.png"
+      "ImageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778509/4ac342a43ca04214393c1f957d5b6f13-removebg-preview_hafq2j.png"
     }
   ],
   "carousel": [
@@ -66,19 +66,19 @@
       "id": "1",
       "title": "AirPod Pro",
       "description": "Discover a world of opportunities and resources tailored just for you.",
-      "imageUrl": "./src/assets/hero.jpg"
+      "imageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778168/b292ef2f-c98f-4e7c-a168-72d3b17f403d.png"
     },
     {
       "id": "2",
       "title": "Grocery Delivery",
       "description": "Explore the latest features that enhance your experience.",
-      "imageUrl": "./src/assets/hero.jpg"
+      "imageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778253/0a2f610a-87f6-45b1-bf4f-71731a819450.png"
     },
     {
       "id": "3",
       "title": "Community Engagement",
       "description": "Connect with like-minded individuals and grow together.",
-      "imageUrl": "./src/assets/hero.jpg"
+      "imageUrl": "https://res.cloudinary.com/dnfahcxo3/image/upload/v1751778355/61339bfb-9850-48e4-b38b-671430818cad.png"
     }
   ]
 }
