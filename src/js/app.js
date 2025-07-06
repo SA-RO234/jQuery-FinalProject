@@ -10,7 +10,7 @@ function DisplayProduct(data) {
   let result = "";
   data.map((item) => {
     result += `
-       <div class="flex  productItem group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-[20rem]  h-[20rem] bg-gray-200" >
+       <div class="flex   productItem group duration-500 hover:shadow-[1px_1px_4px_0px] hover:shadow-gray-700 rounded-3xl relative flex-col justify-end items-end w-full md:w-[20rem]  h-[25rem]  md:h-[20rem] bg-gray-200" >
         ${
           item.dis === 0.0
             ? ``
@@ -18,7 +18,7 @@ function DisplayProduct(data) {
                 item.dis * 100
               }</span>%</p>`
         }
-       <img  class="absolute group-hover:top-[-70px] h-[200px] object-cover  duration-500 rounded-t-3xl  bg-gray-500 top-[-65px] left-[65px] w-[60%] " src="${
+       <img  class="absolute group-hover:top-[-70px] h-[400px] md:h-[200px] object-cover  duration-500 rounded-t-3xl  bg-gray-500 top-[-40px] md:top-[-65px] left-[40px] md:left-[65px] w-[80%] md:w-[60%] " src="${
          item.ImageUrl
        }" alt="" />
             <div class="layer flex justify-end flex-col items-start relative w-full overflow-hidden h-full p-5 rounded-4xl">

@@ -14,7 +14,7 @@ $(document).ready(function () {
       Allcategory.forEach((item) => {
         $("#listitem").append(`
           <li class="nav p-0"  data-category="${item}" >
-            <button type="button" class="text-xl py-3 px-5 category cursor-pointer  border-r-2 border-black  font-bold">
+            <button type="button" class="text-xl py-3 px-5 border-b md:border-b-0 category cursor-pointer  border-r-2 border-black  font-bold">
               ${item}
             </button>
           </li>`);

@@ -4,7 +4,7 @@ function DisplayProductSave(data) {
   data.map((item) => {
     result += `
       <div
-      class="bg-white rounded-3xl overflow-hidden max-w-sm w-full card-shadow relative h-96"
+      class="bg-white rounded-3xl overflow-hidden max-w-sm lg:w-[336px] card-shadow relative md:w-[345px] lg:h-[350px]"
     >
       <!-- Full Height Car Image -->
       <div class="relative h-full">
@@ -24,7 +24,7 @@ function DisplayProductSave(data) {
           </div>
   
           <p class="text-gray-600 text-sm leading-relaxed">
-    ${item.description}
+          ${item.description}
           </p>
         </div>
     </div>
