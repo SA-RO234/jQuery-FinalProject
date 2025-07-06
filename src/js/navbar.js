@@ -3,7 +3,7 @@ Allcategory.push("All");
 $(document).ready(function () {
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/product",
+    url: "/product",
     dataType: "json",
     success: function (response) {
       response.filter((item) => {
