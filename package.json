@@ -10,7 +10,8 @@
   },
   "scripts": {
     "server": "json-server --watch public/db.json --port 8080",
-    "dev": "npx @tailwindcss/cli -i ./src/css/style.css -o ./src/css/output.css --watch"
+    "dev": "npx tailwindcss -i ./src/css/style.css -o ./src/css/output.css --watch",
+    "build": "npx tailwindcss -i ./src/css/style.css -o ./src/css/output.css"
   },
   "name": "project-e-commerce",
   "version": "1.0.0",
