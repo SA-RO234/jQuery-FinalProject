@@ -1,14 +1,15 @@
 {
   "dependencies": {
-    "tailwindcss": "^4.1.8",
     "daisyui": "^5.0.43",
+    "dotenv": "^17.0.1",
     "json-server": "^0.17.1",
     "nodemon": "^3.1.10",
     "owl.carousel": "^2.3.4",
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.8",
+    "tailwindcss": "^4.1.8"
   },
   "scripts": {
-    "server": "json-server --watch public/db.json --port 8080",
+    "server": "nodemon src/js/server.js",
     "dev": "npx tailwindcss -i ./src/css/style.css -o ./src/css/output.css --watch",
     "build": "npx tailwindcss -i ./src/css/style.css -o ./src/css/output.css"
   },

@@ -116,8 +116,8 @@ Calculate();
 
 $(document).ready(function () {
   // Fetch the latest product for carousel using fetch API
-  let AllData = fetch("http://localhost:8080/Carousel");
-  AllData.then((response) => {
+  fetch("/carousel")
+  .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -185,16 +185,19 @@ $(document).ready(function () {
   });
 
   loadingShow();
-  $.ajax({
-    type: "GET",
-    url: "http://localhost:8080/product",
-    dataType: "json",
-    success: function (response) {
-      AllProductStore.push(...response);
-      DisplayProduct(response);
+  fetch("/product")
+    .then((response) => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    })
+    .then((data) => {
+      AllProductStore.push(...data);
+      DisplayProduct(data);
       ActiveNavbar(AllProductStore);
-    },
-  });
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
 
   ShowCart(Allcart);
 
@@ -297,6 +300,4 @@ $(document).ready(function () {
       }
     }
   });
-
-
 });
