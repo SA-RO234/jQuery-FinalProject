@@ -95,84 +95,206 @@
         </div>
       </div>
 
-      <div class="lg:w-[25%] lg:z-0 z-[1000] overflow-hidden lg:relative">
+      <div class="w-full sm:w-80 md:w-96 lg:w-[25%] lg:z-0 z-[1000] overflow-hidden lg:relative">
         <div
           id="productDetail"
-          class="productDetail-container absolute right-[-100%] w-[90%] md:w-[70%] lg:w-full bg-blue-600 mt-5 p-5 rounded-3xl col-lg-4 col-6"
+          class="productDetail-container fixed lg:static top-0 right-0 w-[85%] sm:w-[75%] md:w-[65%] lg:w-full h-full lg:h-auto bg-blue-600 mt-0 lg:mt-5 p-3 sm:p-4 md:p-5 lg:p-6 rounded-none lg:rounded-3xl transform translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg lg:shadow-none"
         >
-          <aside>
-            <div class="flex justify-between items-center">
+          <aside class="h-full lg:h-auto flex flex-col">
+            <div class="flex justify-between items-center mb-3 sm:mb-4 lg:mb-5">
               <button
                 type="button"
                 id="CloseSide"
-                class="text-[20px] cursor-pointer"
+                class="text-white text-lg sm:text-xl cursor-pointer hover:text-gray-200 transition-colors p-2 hover:bg-white/10 rounded-full"
               >
                 <i class="fa-solid fa-angles-right"></i>
               </button>
               <!--  Top Product Detail -->
-              <div class="flex justify-center gap-5 items-center">
+              <div class="flex justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 items-center ml-auto lg:ml-0">
                 <a
                   href="src/components/savepage.html"
-                  class="bg-white cursor-pointer p-[10px_15px] relative text-3xl rounded-full text-black"
+                  class="bg-white cursor-pointer p-2 sm:p-2.5 md:p-3 relative text-lg sm:text-xl md:text-2xl lg:text-3xl rounded-full text-black hover:bg-gray-100 transition-colors transform hover:scale-105"
                 >
                   <i class="fa-regular fa-bookmark"></i>
                   <span
                     id="TotalSave"
-                    class="absolute -top-[10px] text-white p-[2px_10px] text-sm rounded-full -right-[5px] block bg-red-700"
+                    class="absolute -top-1 sm:-top-2 text-white px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full -right-0.5 sm:-right-1 bg-red-700 min-w-[18px] sm:min-w-[20px] text-center transform scale-90 sm:scale-100"
                     >0</span
                   >
                 </a>
                 <button
                   type="button"
-                  class="bg-white p-[10px_15px] text-3xl rounded-full text-black"
+                  class="bg-white p-2 sm:p-2.5 md:p-3 text-lg sm:text-xl md:text-2xl lg:text-3xl rounded-full text-black hover:bg-gray-100 transition-colors transform hover:scale-105"
                 >
                   <i class="fa-solid fa-user"></i>
-                  <img class="hidden" src="" alt="" />
+                  <img class="hidden" src="/placeholder.svg" alt="" />
                 </button>
               </div>
             </div>
+            
             <!-- All each product detail -->
             <div
               id="ProductDetail"
-              class="ProductDetail-container h-[300px] overflow-y-scroll m-[30px_auto]"
-            ></div>
-
+              class="ProductDetail-container flex-1 lg:h-[250px] xl:h-[300px] overflow-y-auto mb-3 sm:mb-4 lg:mb-6 scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100"
+            >
+              <!-- Product items will be dynamically inserted here -->
+              <!-- Example product item structure for reference -->
+              <div class="product-item mb-3 sm:mb-4 p-2 sm:p-3 bg-white/10 rounded-lg transform transition-all duration-200 hover:bg-white/20 hover:translate-x-1">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <img src="/placeholder.svg?height=50&width=50" alt="Product" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded object-cover transform transition-transform hover:scale-105" />
+                  <div class="flex-1 min-w-0">
+                    <h4 class="text-white text-xs sm:text-sm font-medium truncate">Product Name</h4>
+                    <p class="text-white/80 text-xs">$19.99</p>
+                  </div>
+                  <div class="flex items-center gap-1 sm:gap-2">
+                    <button class="text-white hover:text-gray-200 text-sm sm:text-base p-1 hover:bg-white/10 rounded transform transition-all hover:scale-110">-</button>
+                    <span class="text-white text-xs sm:text-sm px-1 sm:px-2 min-w-[20px] text-center">1</span>
+                    <button class="text-white hover:text-gray-200 text-sm sm:text-base p-1 hover:bg-white/10 rounded transform transition-all hover:scale-110">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <!-- Sub total section -->
             <div
-              class="subTotal-container p-5 rounded-2xl bg-[rgba(26,25,25,0.27)]"
+              class="subTotal-container p-3 sm:p-4 md:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-[rgba(26,25,25,0.27)] mb-3 sm:mb-4 lg:mb-6 transform transition-all duration-200 hover:bg-[rgba(26,25,25,0.35)]"
             >
-              <div class="flex justify-between items-center">
-                <p class="label text-[18px]">Sub Total</p>
-                <p class="price text-[18px]">
+              <div class="flex justify-between items-center mb-1 sm:mb-2 transform transition-all duration-150">
+                <p class="label text-xs sm:text-sm md:text-base lg:text-lg text-white">Sub Total</p>
+                <p class="price text-xs sm:text-sm md:text-base lg:text-lg text-white font-medium">
                   $ <span id="subTotal">100.00</span>
                 </p>
               </div>
-              <div class="flex justify-between items-center">
-                <p class="label text-[18px]">Shipment</p>
-                <p class="price text-[18px]"><span id="Shipment"></span></p>
-              </div>
-              <div class="flex justify-between items-center">
-                <p class="label text-[18px]">Discount</p>
-                <p class="price text-[18px]">
-                  $ <span id="discount">100.00</span>
+              <div class="flex justify-between items-center mb-1 sm:mb-2 transform transition-all duration-150">
+                <p class="label text-xs sm:text-sm md:text-base lg:text-lg text-white">Shipment</p>
+                <p class="price text-xs sm:text-sm md:text-base lg:text-lg text-white font-medium">
+                  <span id="Shipment">Free</span>
                 </p>
               </div>
-              <div class="flex justify-between pt-5 items-center">
-                <p class="label text-[25px] font-bold">Total</p>
-                <p class="price text-[25px] font-bold">
-                  $ <span id="totalpayment"></span>
+              <div class="flex justify-between items-center mb-2 sm:mb-3 md:mb-4 transform transition-all duration-150">
+                <p class="label text-xs sm:text-sm md:text-base lg:text-lg text-white">Discount</p>
+                <p class="price text-xs sm:text-sm md:text-base lg:text-lg text-white font-medium">
+                  $ <span id="discount">0.00</span>
+                </p>
+              </div>
+              <div class="flex justify-between pt-2 sm:pt-3 md:pt-4 border-t border-white/20 items-center transform transition-all duration-150">
+                <p class="label text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white">Total</p>
+                <p class="price text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white">
+                  $ <span id="totalpayment">100.00</span>
                 </p>
               </div>
             </div>
+            
             <button
               type="button"
-              class="uppercase text-2xl font-bold text-center bg-black p-5 w-full mt-5 rounded-2xl cursor-pointer"
+              class="uppercase text-sm sm:text-base md:text-lg lg:text-xl font-bold text-center bg-black text-white p-3 sm:p-4 md:p-5 w-full rounded-xl sm:rounded-2xl cursor-pointer hover:bg-gray-800 active:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              + Checkout Payment
+              <i class="fa-solid fa-plus text-xs sm:text-sm transform transition-transform group-hover:rotate-90"></i>
+              <span>Checkout Payment</span>
             </button>
           </aside>
         </div>
       </div>
+      
+      <style>
+      /* Additional CSS for cart animations */
+      .cart-open {
+        transform: translateX(0) !important;
+      }
+      
+      .cart-closed {
+        transform: translateX(100%) !important;
+      }
+      
+      /* Backdrop overlay for mobile */
+      .cart-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      }
+      
+      .cart-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      @media (min-width: 1024px) {
+        .cart-backdrop {
+          display: none;
+        }
+      }
+      </style>
+      
+      <script>
+      // JavaScript for cart functionality with transform
+      document.addEventListener('DOMContentLoaded', function() {
+        const cartContainer = document.getElementById('productDetail');
+        const openCartBtn = document.getElementById('btnOpenSlide');
+        const closeCartBtn = document.getElementById('CloseSide');
+        
+        // Create backdrop for mobile
+        const backdrop = document.createElement('div');
+        backdrop.className = 'cart-backdrop';
+        document.body.appendChild(backdrop);
+        
+        // Open cart function
+        function openCart() {
+          cartContainer.classList.remove('translate-x-full');
+          cartContainer.classList.add('translate-x-0');
+          backdrop.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent background scroll on mobile
+        }
+        
+        // Close cart function
+        function closeCart() {
+          cartContainer.classList.remove('translate-x-0');
+          cartContainer.classList.add('translate-x-full');
+          backdrop.classList.remove('active');
+          document.body.style.overflow = ''; // Restore background scroll
+        }
+        
+        // Event listeners
+        if (openCartBtn) {
+          openCartBtn.addEventListener('click', openCart);
+        }
+        
+        if (closeCartBtn) {
+          closeCartBtn.addEventListener('click', closeCart);
+        }
+        
+        // Close cart when clicking backdrop
+        backdrop.addEventListener('click', closeCart);
+        
+        // Close cart on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            closeCart();
+          }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+          if (window.innerWidth >= 1024) {
+            // Desktop view - ensure cart is visible and remove mobile styles
+            cartContainer.classList.remove('translate-x-full', 'translate-x-0');
+            backdrop.classList.remove('active');
+            document.body.style.overflow = '';
+          } else {
+            // Mobile view - ensure cart is hidden by default
+            if (!cartContainer.classList.contains('translate-x-0')) {
+              cartContainer.classList.add('translate-x-full');
+            }
+          }
+        });
+      });
+      </script>
     </div>
 
     <!-- section listing card  -->
