@@ -116,7 +116,7 @@ Calculate();
 
 $(document).ready(function () {
   // Fetch the latest product for carousel using fetch API
-  fetch("/carousel")
+  fetch("db.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -125,7 +125,7 @@ $(document).ready(function () {
   })
     .then((data) => {
       let result = "";
-      data.forEach((item) => {
+      data.carousel.forEach((item) => {
         result += ` 
           <div class="carousel-item rounded-3xl swiper-slide overflow-visible border relative w-full">
               <p class="absolute bg-red-700 text-white text-2xl font-bold p-5 w-[100px] h-[50px] -top-[20px] right-10 z-10 flex justify-center items-center">New</p>
@@ -185,14 +185,14 @@ $(document).ready(function () {
   });
 
   loadingShow();
-  fetch("/product")
+  fetch("db.json")
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.json();
     })
     .then((data) => {
-      AllProductStore.push(...data);
-      DisplayProduct(data);
+      AllProductStore.push(...data.product);
+      DisplayProduct(data.product);
       ActiveNavbar(AllProductStore);
     })
     .catch((error) => {
